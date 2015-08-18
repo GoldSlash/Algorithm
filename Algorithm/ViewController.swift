@@ -41,24 +41,26 @@ class ViewController: UIViewController {
         
         
         
-        // calculate ETA
-        let eta = MKDirections()
-        let directionsRequest = MKDirectionsRequest()
+        // Make the source
         let source = MKMapItem.mapItemForCurrentLocation()
         
         // Make the destination
         let destinationCoords = CLLocationCoordinate2DMake(45.52, -122.681944)
-        let destinationPlacemark = MKPlacemark(coordinate: destinationCoords, addressDictionary: <#[NSObject : AnyObject]!#>)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoords, addressDictionary: nil)
         let destination = MKMapItem(placemark: destinationPlacemark)
-        // Set the source and destination on the request
-        directionsRequest.source(source)
-        directionsRequest.destination(destination)
-        
-        eta.calculateETAWithCompletionHandler { (response: MKETAResponse, error: NSError) -> Void in
-            
+
+        // Make the request and set the source, destination, and transport type
+        let directionsRequest = MKDirectionsRequest()
+        directionsRequest.setSource(source)
+        directionsRequest.setDestination(destination)
+        directionsRequest.transportType = .Automobile
+
+        // Make the directions object
+        let directions = MKDirections(request: directionsRequest)
+        directions.calculateDirectionsWithCompletionHandler { (response, error) -> Void in
             print(response)
-            
         }
+
         
         
         
