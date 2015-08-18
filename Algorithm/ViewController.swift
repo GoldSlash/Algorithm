@@ -1,25 +1,17 @@
-//
-//  ViewController.swift
-//  Algorithm
-//
-//  Created by Patrick Corrigan on 8/17/15.
-//  Copyright (c) 2015 Gold Slash. All rights reserved.
-//
-
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let regionRadius: Miles = 20.0
+        
+        let currentLocation = CLLocation(latitude: 45.52, longitude: -122.681944)  // using Portland for now
+        let region = Region(origin: currentLocation, radiusInMiles: regionRadius)
+        region.fetchLocations()
     }
-
 
 }
 
