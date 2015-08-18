@@ -1,54 +1,48 @@
 import CoreLocation
 
+let maxDistanceFromSectorOrigin: Meters = 100.0
+
 class Region {
     
-    // TODO: replace with a matrix data structure
-    // http://stackoverflow.com/questions/26563821/swift-how-to-declare-a-2d-array-grid-or-matrix-in-swift-to-allow-random-inser
-    var sectors = [Sector]()
-    
     let origin: CLLocation
+    
     let radius: Meters
     
-    private var locations = Set<CLLocation>()
+    var sectors = [Sector]()
+    
+    var locations = [CLLocation]()
     
     var numberOfLocations: Int { get { return locations.count } }
     
-    init(origin: CLLocation, radiusInKilometers radius: Kilometers) {
+    init(origin: CLLocation, radius: Meters) {
         self.origin = origin
-        self.radius = radius * 1000
+        self.radius = radius
     }
     
-    init(origin: CLLocation, radiusInMiles radius: Miles) {
-        self.origin = origin
-        self.radius = radius * 1609.34
-    }
-    
-    func fetchLocations() {
-        // use CloudKit to fetch locations matching this predicate (within 'radius' miles of 'origin')
-        let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(location, %@) < %f", [self.origin, self.radius])
-        let matchinglocations: [CLLocation]
-        // add matchingLocations to self.locations
-    }
-    
-    func assignLocationsToSectors() {
-        // determine size of sectors matrix, based on locations with the most exteme lat/long values
-        // example:
-        // currentLocation is 42.52, -122.681944 (Portland)
-        // locations: (42.10, -122.60), (42.20, -122.70), (42.30, -122.50), (42.40, -122.40), (42.50, -122.40)
-        // extremes would be 42.10 to 42.50 and -122.70 to -122.40
-        
+    func sectorsFromLocations(locations: [CLLocation]) -> [Sector] {
+        var sectors = [Sector]()
         
         for location in locations {
-            // let containingSector = sectors.sectorContainingLocation(location)
-            // containingSector.addLocation(location)
+            var existingSectorFound = false
+            
+            // search for an existing sector that location should belong to based on distance from sector origin
+            for sector in sectors {
+                let distanceFromSectorOrigin = location.distanceFromLocation(sector.origin)
+                if distanceFromSectorOrigin < maxDistanceFromSectorOrigin {
+                    sector.addLocation(location)
+                    existingSectorFound = true
+                    break
+                }
+            }
+            
+            // no existing sector was found, so we'll create a new one
+            if !existingSectorFound {
+                let sector = Sector()
+                sector.addLocation(location)
+                sectors.append(sector)
+            }
         }
-    }
-    
-    func scoreSectors() {
-        // sort sectors by sector.numberOfLocations?
-        // this probably needs to consider the mean minutes between the locations' dates
-        for sector in sectors {
-            sector.score = Double(sector.numberOfLocations) / Double(self.numberOfLocations) * 100
-        }
+        
+        return sectors
     }
 }

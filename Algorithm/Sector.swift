@@ -2,21 +2,27 @@ import CoreLocation
 
 class Sector {
     
-    let origin: CLLocation
-    let radius: Seconds
+    // score is simply the number of locations in a sector
+    var score: Int { get { return numberOfLocations } }
     
-    var score: Double = 0   // 0 to 100
-    
-    private var locations = Set<CLLocation>()
+    var locations = [CLLocation]()
     
     var numberOfLocations: Int { get { return locations.count } }
     
-    init(origin: CLLocation, radius: Seconds) {
-        self.origin = origin
-        self.radius = radius
+    // origin is average of all locations in the sector
+    var origin: CLLocation {
+        get {
+            let latitudes = locations.map({$0.coordinate.latitude})
+            let averageLatitude = latitudes.reduce(0, combine: +) / Double(latitudes.count)
+            
+            let longitudes = locations.map({$0.coordinate.longitude})
+            let averageLongitude = longitudes.reduce(0, combine: +) / Double(longitudes.count)
+            
+            return CLLocation(latitude: averageLatitude, longitude: averageLongitude)
+        }
     }
     
     func addLocation(location: CLLocation) {
-        locations.insert(location)
+        locations.append(location)
     }
 }
