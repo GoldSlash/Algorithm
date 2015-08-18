@@ -2,8 +2,8 @@ import CoreLocation
 
 class Sector {
     
-    let originPoint: CLLocationCoordinate2D
-    let size: Meters
+    let origin: CLLocation
+    let radius: Seconds
     
     var score: Double = 0   // 0 to 100
     
@@ -11,9 +11,9 @@ class Sector {
     
     var numberOfLocations: Int { get { return locations.count } }
     
-    init(originPoint: CLLocationCoordinate2D, size: Meters) {
-        self.originPoint = originPoint
-        self.size = size
+    init(origin: CLLocation, radius: Seconds) {
+        self.origin = origin
+        self.radius = radius
     }
     
     func addLocation(location: CLLocation) {
