@@ -42,8 +42,8 @@ class ViewController: UIViewController {
         
         
         // Make the source
-//        let source = MKMapItem.mapItemForCurrentLocation()
-        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 45.40, longitude: -122.69), addressDictionary: nil))
+        let source = MKMapItem.mapItemForCurrentLocation()
+//        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 45.40, longitude: -122.69), addressDictionary: nil))
         
         // Make the destination
         let destinationCoords = CLLocationCoordinate2DMake(45.52, -122.681944)
@@ -59,6 +59,10 @@ class ViewController: UIViewController {
         // Make the directions object
         let directions = MKDirections(request: directionsRequest)
         directions.calculateETAWithCompletionHandler({ (response, error) -> Void in
+            if error != nil {
+                print(error)
+            }
+            
             let eta: Seconds = response.expectedTravelTime
             let etaInWholeMinutes = Int(round(eta.inMinutes()))
             print("ETA: \(etaInWholeMinutes)m")
