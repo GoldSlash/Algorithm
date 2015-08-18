@@ -33,7 +33,6 @@ class Region {
                 if distanceFromSectorOrigin < radius {
                     sector.addLocation(location)
                     existingSectorFound = true
-                    break
                 }
             }
             
