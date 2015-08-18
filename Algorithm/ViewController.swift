@@ -37,6 +37,32 @@ class ViewController: UIViewController {
             point.coordinate = location.coordinate
             mapView.addAnnotation(point)
         }
+        
+        
+        
+        
+        // calculate ETA
+        let eta = MKDirections()
+        let directionsRequest = MKDirectionsRequest()
+        let source = MKMapItem.mapItemForCurrentLocation()
+        
+        // Make the destination
+        let destinationCoords = CLLocationCoordinate2DMake(45.52, -122.681944)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoords, addressDictionary: <#[NSObject : AnyObject]!#>)
+        let destination = MKMapItem(placemark: destinationPlacemark)
+        // Set the source and destination on the request
+        directionsRequest.source(source)
+        directionsRequest.destination(destination)
+        
+        eta.calculateETAWithCompletionHandler { (response: MKETAResponse, error: NSError) -> Void in
+            
+            print(response)
+            
+        }
+        
+        
+        
+        
     }
 
 }
