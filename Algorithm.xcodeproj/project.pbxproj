@@ -19,6 +19,8 @@
 		926AB4191B82AE910038C6FE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AB4181B82AE910038C6FE /* Region.swift */; };
 		926AB41B1B82C9FC0038C6FE /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AB41A1B82C9FC0038C6FE /* CloudManager.swift */; };
 		926AB4211B83B3F50038C6FE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AB4201B83B3F50038C6FE /* CoreLocation.framework */; };
+		926AB4251B83BF9E0038C6FE /* Franklin Ide.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 926AB4241B83BF9E0038C6FE /* Franklin Ide.gpx */; };
+		926AB4281B83C26C0038C6FE /* Extends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AB4271B83C26C0038C6FE /* Extends.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +49,9 @@
 		926AB4161B82AE860038C6FE /* Sector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
 		926AB4181B82AE910038C6FE /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		926AB41A1B82C9FC0038C6FE /* CloudManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
-		926AB41C1B82F0320038C6FE /* Extends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extends.swift; sourceTree = "<group>"; };
 		926AB4201B83B3F50038C6FE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		926AB4241B83BF9E0038C6FE /* Franklin Ide.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Franklin Ide.gpx"; sourceTree = "<group>"; };
+		926AB4271B83C26C0038C6FE /* Extends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extends.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 		926AB3E41B82A5440038C6FE = {
 			isa = PBXGroup;
 			children = (
+				926AB4241B83BF9E0038C6FE /* Franklin Ide.gpx */,
 				926AB4201B83B3F50038C6FE /* CoreLocation.framework */,
 				926AB4121B82A5B60038C6FE /* MapKit.framework */,
 				926AB3EF1B82A5440038C6FE /* Algorithm */,
@@ -104,7 +108,7 @@
 				926AB3F91B82A5440038C6FE /* Images.xcassets */,
 				926AB3FB1B82A5440038C6FE /* LaunchScreen.xib */,
 				926AB3F01B82A5440038C6FE /* Supporting Files */,
-				926AB41C1B82F0320038C6FE /* Extends.swift */,
+				926AB4271B83C26C0038C6FE /* Extends.swift */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -219,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926AB4251B83BF9E0038C6FE /* Franklin Ide.gpx in Resources */,
 				926AB3F81B82A5440038C6FE /* Main.storyboard in Resources */,
 				926AB3FD1B82A5440038C6FE /* LaunchScreen.xib in Resources */,
 				926AB3FA1B82A5440038C6FE /* Images.xcassets in Resources */,
@@ -242,6 +247,7 @@
 				926AB3F51B82A5440038C6FE /* ViewController.swift in Sources */,
 				926AB3F31B82A5440038C6FE /* AppDelegate.swift in Sources */,
 				926AB4151B82AE550038C6FE /* Globals.swift in Sources */,
+				926AB4281B83C26C0038C6FE /* Extends.swift in Sources */,
 				926AB41B1B82C9FC0038C6FE /* CloudManager.swift in Sources */,
 				926AB4191B82AE910038C6FE /* Region.swift in Sources */,
 				926AB4171B82AE860038C6FE /* Sector.swift in Sources */,

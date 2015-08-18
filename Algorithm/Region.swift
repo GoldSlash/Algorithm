@@ -1,7 +1,5 @@
 import CoreLocation
 
-let maxDistanceFromSectorOrigin: Meters = 100.0
-
 class Region {
     
     let origin: CLLocation
@@ -19,7 +17,11 @@ class Region {
         self.radius = radius
     }
     
-    func sectorsFromLocations(locations: [CLLocation]) -> [Sector] {
+    func generateSectorsUsingRadius(radius: Meters) {
+        self.sectors = self.sectorsFromLocations(self.locations, usingRadius: radius)
+    }
+    
+    func sectorsFromLocations(locations: [CLLocation], usingRadius radius: Meters) -> [Sector] {
         var sectors = [Sector]()
         
         for location in locations {
@@ -28,7 +30,7 @@ class Region {
             // search for an existing sector that location should belong to based on distance from sector origin
             for sector in sectors {
                 let distanceFromSectorOrigin = location.distanceFromLocation(sector.origin)
-                if distanceFromSectorOrigin < maxDistanceFromSectorOrigin {
+                if distanceFromSectorOrigin < radius {
                     sector.addLocation(location)
                     existingSectorFound = true
                     break

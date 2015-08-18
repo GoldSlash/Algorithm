@@ -2,6 +2,9 @@ import UIKit
 import CoreLocation
 import MapKit
 
+let numberOfLocationsToFetch = 1000
+let radiusForSectorClustering = 3000.0    // meters
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -19,22 +22,24 @@ class ViewController: UIViewController {
         // Region
         let regionRadius: Miles = 20.0
         let region = Region(origin: currentLocation, radius: regionRadius.inMeters())
-        region.locations = CloudManager.fetchRandomLocations()
+        region.locations = CloudManager.fetchRandomLocations(numberOfLocations: numberOfLocationsToFetch)
+        region.generateSectorsUsingRadius(radiusForSectorClustering)
         
         // MapView
         mapView.delegate = self
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         mapView.region = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .Follow
+//        mapView.userTrackingMode = .Follow
         
         let point = MKPointAnnotation()
         point.coordinate = currentLocation.coordinate
         mapView.addAnnotation(point)
         
-        for location in region.locations {
+        for sector in region.sectors {
             let point = MKPointAnnotation()
-            point.coordinate = location.coordinate
+            point.coordinate = sector.origin.coordinate
+            point.title = String(sector.score)
             mapView.addAnnotation(point)
         }
         
@@ -65,7 +70,7 @@ class ViewController: UIViewController {
             
             let eta: Seconds = response.expectedTravelTime
             let etaInWholeMinutes = Int(round(eta.inMinutes()))
-            print("ETA: \(etaInWholeMinutes)m")
+//            print("ETA: \(etaInWholeMinutes)m")
             })
         
         

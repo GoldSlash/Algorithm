@@ -19,14 +19,14 @@ class CloudManager {
         }
     }
     
-    class func fetchRandomLocations() -> [CLLocation] {
+    class func fetchRandomLocations(#numberOfLocations: Int) -> [CLLocation] {
         var locations: [CLLocation] = []
         
         let portlandCoordinate = CLLocation(latitude: 45.52, longitude: -122.681944).coordinate
         
-        for _ in 0..<10 {
-            let latitude = portlandCoordinate.latitude  // + random offset
-            let longitude = portlandCoordinate.longitude    // + random offset
+        for _ in 0..<numberOfLocations {
+            let latitude = portlandCoordinate.latitude  + Double.random(min: -0.1, max: 0.1)
+            let longitude = portlandCoordinate.longitude + Double.random(min: -0.1, max: 0.1)
             let location = CLLocation(latitude: latitude, longitude: longitude)
             locations.append(location)
         }

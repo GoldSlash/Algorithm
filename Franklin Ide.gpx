@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gpx
+xmlns="http://www.topografix.com/GPX/1/1"
+xmlns:gpxx = "http://www.garmin.com/xmlschemas/GpxExtensions/v3"
+xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd
+http://www.garmin.com/xmlschemas/GpxExtensions/v3
+http://www8.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd"
+version="1.1"
+creator="gpx-poi.com">
+   <wpt lat="45.529636" lon="-122.697983">
+      <time>2015-08-18T19:31:00Z</time>
+      <name>Franklin Ide</name>
+      <extensions>
+         <gpxx:WaypointExtension>
+            <gpxx:Address>
+               <gpxx:StreetAddress>2240 Northwest Lovejoy Street</gpxx:StreetAddress>
+               <gpxx:City>Portland</gpxx:City>
+               <gpxx:State>OR</gpxx:State>
+               <gpxx:Country>US</gpxx:Country>
+               <gpxx:PostalCode>97210</gpxx:PostalCode>
+            </gpxx:Address>
+         </gpxx:WaypointExtension>
+      </extensions>
+   </wpt>
+</gpx>
