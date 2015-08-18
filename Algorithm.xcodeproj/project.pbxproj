@@ -50,7 +50,7 @@
 		926AB4181B82AE910038C6FE /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		926AB41A1B82C9FC0038C6FE /* CloudManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
 		926AB4201B83B3F50038C6FE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		926AB4241B83BF9E0038C6FE /* Franklin Ide.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Franklin Ide.gpx"; sourceTree = "<group>"; };
+		926AB4241B83BF9E0038C6FE /* Franklin Ide.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Franklin Ide.gpx"; path = "../Franklin Ide.gpx"; sourceTree = "<group>"; };
 		926AB4271B83C26C0038C6FE /* Extends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extends.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,7 +77,6 @@
 		926AB3E41B82A5440038C6FE = {
 			isa = PBXGroup;
 			children = (
-				926AB4241B83BF9E0038C6FE /* Franklin Ide.gpx */,
 				926AB4201B83B3F50038C6FE /* CoreLocation.framework */,
 				926AB4121B82A5B60038C6FE /* MapKit.framework */,
 				926AB3EF1B82A5440038C6FE /* Algorithm */,
@@ -99,16 +98,15 @@
 			isa = PBXGroup;
 			children = (
 				926AB3F21B82A5440038C6FE /* AppDelegate.swift */,
-				926AB4141B82AE550038C6FE /* Globals.swift */,
-				926AB4161B82AE860038C6FE /* Sector.swift */,
-				926AB4181B82AE910038C6FE /* Region.swift */,
 				926AB41A1B82C9FC0038C6FE /* CloudManager.swift */,
-				926AB3F41B82A5440038C6FE /* ViewController.swift */,
+				926AB4291B83DBEB0038C6FE /* Model */,
+				926AB42A1B83DC000038C6FE /* View Controllers */,
+				926AB4141B82AE550038C6FE /* Globals.swift */,
+				926AB4271B83C26C0038C6FE /* Extends.swift */,
 				926AB3F61B82A5440038C6FE /* Main.storyboard */,
 				926AB3F91B82A5440038C6FE /* Images.xcassets */,
 				926AB3FB1B82A5440038C6FE /* LaunchScreen.xib */,
 				926AB3F01B82A5440038C6FE /* Supporting Files */,
-				926AB4271B83C26C0038C6FE /* Extends.swift */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -117,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				926AB3F11B82A5440038C6FE /* Info.plist */,
+				926AB4241B83BF9E0038C6FE /* Franklin Ide.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -136,6 +135,23 @@
 				926AB4071B82A5440038C6FE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		926AB4291B83DBEB0038C6FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				926AB4161B82AE860038C6FE /* Sector.swift */,
+				926AB4181B82AE910038C6FE /* Region.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		926AB42A1B83DC000038C6FE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				926AB3F41B82A5440038C6FE /* ViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

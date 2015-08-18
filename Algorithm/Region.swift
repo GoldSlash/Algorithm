@@ -38,7 +38,7 @@ class Region {
             
             // no existing sector was found, so we'll create a new one
             if !existingSectorFound {
-                let sector = Sector()
+                let sector = Sector(radius: radius)
                 sector.addLocation(location)
                 sectors.append(sector)
             }

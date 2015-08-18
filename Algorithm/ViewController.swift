@@ -3,7 +3,7 @@ import CoreLocation
 import MapKit
 
 let numberOfLocationsToFetch = 1000
-let radiusForSectorClustering = 3000.0    // meters
+let radiusForSectorClustering = 5000.0    // meters
 
 class ViewController: UIViewController {
     
@@ -41,6 +41,9 @@ class ViewController: UIViewController {
             point.coordinate = sector.origin.coordinate
             point.title = String(sector.score)
             mapView.addAnnotation(point)
+            
+            let circle = MKCircle(centerCoordinate: sector.origin.coordinate, radius: sector.radius)
+            mapView.addOverlay(circle)
         }
         
         
@@ -85,7 +88,14 @@ extension ViewController: CLLocationManagerDelegate {
 }
 
 extension ViewController: MKMapViewDelegate {
-    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        let circle = overlay as? MKCircle
+        let renderer = MKCircleRenderer(circle: circle)
+        renderer.fillColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.2)
+        renderer.strokeColor = UIColor(red: 1.0, green: 0.0, blue: 1.0, alpha: 1.0)
+        renderer.lineWidth = 1.0
+        return renderer
+    }
     
 }
 

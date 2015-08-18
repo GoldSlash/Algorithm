@@ -23,10 +23,13 @@ class CloudManager {
         var locations: [CLLocation] = []
         
         let portlandCoordinate = CLLocation(latitude: 45.52, longitude: -122.681944).coordinate
+        var radius = 0.1
         
         for _ in 0..<numberOfLocations {
-            let latitude = portlandCoordinate.latitude  + Double.random(min: -0.1, max: 0.1)
-            let longitude = portlandCoordinate.longitude + Double.random(min: -0.1, max: 0.1)
+            let x = Double.random(min: -radius, max: radius)
+            let y = Double.random(min: -sqrt(radius*radius - x*x), max: sqrt(radius*radius - x*x))
+            let latitude = portlandCoordinate.latitude  + x
+            let longitude = portlandCoordinate.longitude + y
             let location = CLLocation(latitude: latitude, longitude: longitude)
             locations.append(location)
         }

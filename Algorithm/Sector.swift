@@ -1,6 +1,9 @@
 import CoreLocation
+import MapKit
 
-class Sector {
+class Sector: NSObject {
+    
+    var radius: Meters
     
     // score is simply the number of locations in a sector
     var score: Int { get { return numberOfLocations } }
@@ -22,7 +25,17 @@ class Sector {
         }
     }
     
+    init(radius: Meters) {
+        self.radius = radius
+    }
+    
     func addLocation(location: CLLocation) {
         locations.append(location)
     }
+}
+
+extension Sector: MKAnnotation {
+    
+    var coordinate: CLLocationCoordinate2D { get { return self.origin.coordinate } }
+    
 }
